@@ -1,0 +1,4 @@
+{application, vanity,
+ [{description, "A slugifier that converts utf-8 latin characters to their ascii counterpart."},
+  {vsn, "0.0.1"},
+  {applications, [kernel, stdlib]}]}.
