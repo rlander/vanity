@@ -22,7 +22,7 @@ slugify(<<>>) -> <<>>;
 slugify(Str) when is_list(Str) ->
     lists:flatten(slugify(lists:flatten(Str), []));
 slugify(Str) when is_binary(Str) ->
-    list_to_binary(lists:flatten(slugify(binary_to_list(Str)), [])).
+    list_to_binary(lists:flatten(slugify(unicode:characters_to_list(Str)), [])).
 
 slugify([C | Rest], Acc) when ?islower(C) orelse ?isdigit(C) orelse C =:= $_ ->
     slugify(Rest, [C | Acc]);
